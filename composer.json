@@ -1,0 +1,9 @@
+{
+  "type": "library",
+  "autoload":  {
+    "psr-4":{
+      "AHT\\": ""
+    }
+  }
+
+}
