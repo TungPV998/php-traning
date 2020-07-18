@@ -14,7 +14,7 @@ class TaskRepository
         $taskResource = new TaskResourceModel();
 
         $success = $taskResource->save($model);
-        var_dump($success);die();
+        //var_dump($success);die();
         if($success){
             //die("ok taskrespon");
             return true;
@@ -27,8 +27,7 @@ class TaskRepository
     public function showTask($id)
     {
         $taskResource = new TaskResourceModel();
-//        var_dump($taskResource->edit($id));
-////        die();
+
         return $taskResource->edit($id);
     }
 
@@ -42,9 +41,21 @@ class TaskRepository
     }
 
 
-    public function update($model)
+    public function update($id,$model)
     {
 
+        $taskResource = new TaskResourceModel();
+//        die("update Task respon");
+        $success = $taskResource->update($id,$model);
+var_dump($success);
+die();
+        if($success){
+            //die("ok taskrespon");
+            return true;
+        }else{
+            //die("not taskrespon");
+            return false;
+        }
 
     }
     public function delete($id)

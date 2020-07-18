@@ -13,15 +13,12 @@ class TasksController extends Controller
         $this->set($d);
         $this->render("index");
     }
-
     function formCreate()
     {
         $this->render("create");
     }
     function create()
     {
-        //echo "OK";
-
         if (isset($_POST["title"]))
         {
             $title = $_POST["title"];
@@ -40,7 +37,7 @@ class TasksController extends Controller
 
             if ($taskRepository->create($task))
             {
-                die('taskController');
+                //die('taskController');
                 header("Location: /mvc01");
             }
         }
@@ -50,27 +47,34 @@ class TasksController extends Controller
     function edit($id)
     {
         $tasks = new TaskRepository();
+
+            if (isset($_POST["title"]))
+            {
+//                echo $id;
+//                die();
+                $getId = $id;
+                $title = $_POST["title"];
+                $description = $_POST["description"];
+                $created_at = date('Y-m-d H:i:s');
+                $updated_at = date('Y-m-d H:i:s');
+                $task = new Task();
+                $task->setDescription($description);
+                $task->setId($getId);
+                $task->setTitle($title);
+                $task->setCreated_at($created_at);
+                $task->setUpdated_at($updated_at);
+               // die("here out");
+                if ($tasks->update($getId,$task))
+                {
+                    die("here if");
+                    header("Location: /mvc01");
+                }
+            }
         $d['tasks'] = $tasks->showTask($id);
-        var_dump($d);
-        die();
         $this->set($d);
         $this->render("edit");
     }
-    function update($id){
-        //require(ROOT . 'Models/Task.php');
-        // $task= new Task();
 
-        // $d["task"] = $task->showTask($id);
-
-//        if (isset($_POST["title"]))
-//        {
-//            if ($task->edit($id, $_POST["title"], $_POST["description"]))
-//            {
-//                header("Location: " . WEBROOT . "tasks/index");
-//            }
-//        }
-//        $this->set($d);
-    }
     function delete($id)
     {
         if(isset($id)){

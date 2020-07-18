@@ -1,4 +1,6 @@
 
+Kphp:S121"0Add curly braces around the nested statement(s).(ëàñº8ÄÔ…¶.
+Pphp:S121"0Add curly braces around the nested statement(s).(¿Æ¾Œşÿÿÿÿ8Øà±…¶.
 Iphp:S121
-"0Add curly braces around the nested statement(s).(êÉ¡±ÿÿÿÿÿ
-N	php:S2041"-Remove the parentheses from this "echo" call.(ÑæŸ¸øÿÿÿÿ8ûÍâµ.
+"0Add curly braces around the nested statement(s).(âàš¢ÿÿÿÿÿ
+·	php:S2681"•This statement will not be executed conditionally; only the first statement of this 2-statement block will be. The rest will execute unconditionally.(¿Æ¾Œşÿÿÿÿ8ÄÔ…¶.

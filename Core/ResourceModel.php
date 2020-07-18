@@ -45,9 +45,8 @@ class ResourceModel implements ResourceModelInterface
 //            die();
            $sql = "INSERT INTO $this->table($columns) VALUES ('" . implode("','",$arrValue) . "')";
            var_dump($sql);
-//            die();
+            die();
             $req = Database::getBdd()->prepare($sql);
-            var_dump($req->execute());
          //   die();
             return $req->execute();
 
@@ -63,13 +62,37 @@ class ResourceModel implements ResourceModelInterface
         }
         public function update($id,$model)
         {
-            // TODO: Implement update() method.
+            $model = (array)$model;
+            //chuyen doi kieu object thanh kieu mang
+            $arrKey = array();
+            $arrValue = array();
+            foreach ($model as $key => $item ){
+                array_push($arrKey,$key);
+                array_push($arrValue,$item);
+            }
+            //loai bo namspace de lay ten cot
+            $arrKeys = str_replace("AHT\Models\Task","",$arrKey);
+
+            $arr = array_combine($arrKeys,$arrValue);
+
+            $valueSets = array();
+
+            foreach($arr as $key => $value) {
+                $valueSets[] = $key . " = '" . $value . "'";
+            }
+            array_shift($valueSets);
+           $setCol =  implode(', ',$valueSets);
+            $sql = "UPDATE $this->table 
+                    SET $setCol
+                    WHERE $this->id = $id";
+//            var_dump($sql);
+//            die();
+            $req = Database::getBdd()->prepare($sql);
+            return $req->execute();
         }
         public function delete($id)
         {
             $sql = "DELETE FROM $this->table WHERE $this->id = $id";
-//            var_dump($sql);
-//            die();
             $req = Database::getBdd()->prepare($sql);
            return $req->execute();
 

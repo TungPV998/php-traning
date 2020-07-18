@@ -1,10 +1,10 @@
 
-9php:S125$"Remove this commented out code.(Ú¡§8«¹èÒµ.
-:php:S125?"Remove this commented out code.(ù¹®…8Ãõ­âµ.
 :php:S125
 "Remove this commented out code.(åò‚½8®€…µ.
-:php:S125B"Remove this commented out code.(Ú°à¬8Ãõ­âµ.
-?php:S1256"Remove this commented out code.(²¤½şÿÿÿÿ8øÈÏâµ.
-:php:S125D"Remove this commented out code.(Ú°à¬8Ãõ­âµ.
-9php:S125"Remove this commented out code.(²ª»h8·ªª¸µ.
-:php:S125<"Remove this commented out code.(åò‚½8Ãõ­âµ.
+g	php:S1192"FDefine a constant instead of duplicating this literal "title" 4 times.(¸†éøÿÿÿÿ8áûæ„¶.
+m	php:S1192)"QDefine a constant instead of duplicating this literal "Location: /mvc01" 3 times.(˜¡Ç™8áûæ„¶.
+h	php:S1192"GDefine a constant instead of duplicating this literal "create" 3 times.(§Ã¹äûÿÿÿÿ8áûæ„¶.
+?php:S1253"Remove this commented out code.(²¤½şÿÿÿÿ8’ÊÖ…¶.
+9php:S125H"Remove this commented out code.(Ú¡§8áûæ„¶.
+h	php:S1192"LDefine a constant instead of duplicating this literal "Y-m-d H:i:s" 4 times.(Åì®8áûæ„¶.
+9php:S125!"Remove this commented out code.(Ú¡§8«¹èÒµ.
