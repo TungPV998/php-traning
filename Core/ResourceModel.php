@@ -36,20 +36,12 @@ class ResourceModel implements ResourceModelInterface
                 array_push($arrKey,$key);
                 array_push($arrValue,$item);
             }
-            $arrKeys = str_replace("AHT\Models\Task","",$arrKey);
-            //array_shift($arrKeys);
-            $columns = implode(", ",$arrKeys);
-           // array_shift($arrValue);
-            $arrValue[0]='null';
-//            var_dump($arrValue);
-//            die();
-           $sql = "INSERT INTO $this->table($columns) VALUES ('" . implode("','",$arrValue) . "')";
-           var_dump($sql);
-            die();
-            $req = Database::getBdd()->prepare($sql);
-         //   die();
-            return $req->execute();
+            $columns = implode(", ", $arrKey);
 
+            $arrValue[0]='null';
+            $sql = "INSERT INTO $this->table($columns) VALUES ('" . implode("','", $arrValue) . "')";
+            $req = Database::getBdd()->prepare($sql);
+            return $req->execute();
 
         }
         public function edit($id)
@@ -71,9 +63,8 @@ class ResourceModel implements ResourceModelInterface
                 array_push($arrValue,$item);
             }
             //loai bo namspace de lay ten cot
-            $arrKeys = str_replace("AHT\Models\Task","",$arrKey);
 
-            $arr = array_combine($arrKeys,$arrValue);
+            $arr = array_combine($arrKey,$arrValue);
 
             $valueSets = array();
 
@@ -85,8 +76,6 @@ class ResourceModel implements ResourceModelInterface
             $sql = "UPDATE $this->table 
                     SET $setCol
                     WHERE $this->id = $id";
-//            var_dump($sql);
-//            die();
             $req = Database::getBdd()->prepare($sql);
             return $req->execute();
         }
@@ -96,8 +85,6 @@ class ResourceModel implements ResourceModelInterface
             $req = Database::getBdd()->prepare($sql);
            return $req->execute();
 
-
-
         }
         public function getAll(){
             $sql = "SELECT * FROM $this->table ";
@@ -105,8 +92,6 @@ class ResourceModel implements ResourceModelInterface
             $req->execute();
             return $req->fetchAll();
         }
-//    public function showTask($id){
-//
-//    }
+
 
 }

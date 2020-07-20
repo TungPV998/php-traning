@@ -4,11 +4,11 @@ use AHT\Core\Model;
 
 class Task extends Model
 {
-private $id;
-private $title;
-private $description;
-private $created_at;
-private $updated_at;
+    public $id;
+    public $title;
+    public $description;
+    public $created_at;
+    public $updated_at;
 
     public function setId($id)
     {

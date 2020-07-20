@@ -64,9 +64,9 @@ class TasksController extends Controller
                 $task->setCreated_at($created_at);
                 $task->setUpdated_at($updated_at);
                // die("here out");
-                if ($tasks->update($getId,$task))
+                if ($tasks->update($getId, $task))
                 {
-                    die("here if");
+                   // die("here if");
                     header("Location: /mvc01");
                 }
             }
